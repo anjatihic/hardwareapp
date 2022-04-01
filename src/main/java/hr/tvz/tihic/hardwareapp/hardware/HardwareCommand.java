@@ -13,7 +13,7 @@ public class HardwareCommand {
     private String code;
 
     @NotBlank(message = "Price cannot be empty")
-    @Positive(message = "Price cannot be zero or below")
+    @PositiveOrZero(message = "Price cannot be negative")
     private double price;
 
     @NotBlank(message = "Number of available hardware cannot be empty")
