@@ -22,4 +22,44 @@ public class HardwareCommand {
 
     @NotBlank(message = "Hardware type cannot be empty")
     private Hardware.Type type;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Integer getNumberAvailable() {
+        return numberAvailable;
+    }
+
+    public void setNumberAvailable(Integer numberAvailable) {
+        this.numberAvailable = numberAvailable;
+    }
+
+    public Hardware.Type getType() {
+        return type;
+    }
+
+    public void setType(Hardware.Type type) {
+        this.type = type;
+    }
 }

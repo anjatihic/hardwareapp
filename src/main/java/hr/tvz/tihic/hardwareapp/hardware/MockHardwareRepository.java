@@ -20,4 +20,14 @@ public class MockHardwareRepository implements HardwareRepository {
     public Optional<Hardware> findByCode(final String code){
         return MOCKED_HARDWARE.stream().filter(it -> Objects.equals(it.getCode(), code)).findAny();
     }
+
+    @Override
+    public Optional<Hardware> save(final Hardware hardware){
+        if(!MOCKED_HARDWARE.contains(hardware)){
+            MOCKED_HARDWARE.add(hardware);
+            return Optional.of(hardware);
+        }else{
+            return Optional.empty();
+        }
+    }
 }
