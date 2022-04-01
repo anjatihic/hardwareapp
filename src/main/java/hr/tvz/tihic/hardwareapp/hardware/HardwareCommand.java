@@ -1,7 +1,6 @@
 package hr.tvz.tihic.hardwareapp.hardware;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
 public class HardwareCommand {
@@ -21,9 +20,9 @@ public class HardwareCommand {
     private Integer numberAvailable;
 
     @NotBlank(message = "Hardware type cannot be empty")
-    private Hardware.Type type;
+    private String type;
 
-    public String getName() {
+    public String getName(){
         return name;
     }
 
@@ -55,11 +54,11 @@ public class HardwareCommand {
         this.numberAvailable = numberAvailable;
     }
 
-    public Hardware.Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Hardware.Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

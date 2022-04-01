@@ -38,7 +38,7 @@ public class HardwareServiceImpl implements HardwareService {
                             hardwareCommand.getCode(),
                             hardwareCommand.getPrice(),
                             hardwareCommand.getNumberAvailable(),
-                            hardwareCommand.getType());
+                            Hardware.Type.valueOf(hardwareCommand.getType().toUpperCase()));
     }
 
 }
