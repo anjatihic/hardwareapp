@@ -1,22 +1,27 @@
 package hr.tvz.tihic.hardwareapp.hardware;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
 public class HardwareCommand {
 
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
 
-
+    @NotBlank(message = "Code cannot be empty")
     private String code;
 
-
+    @NotNull(message = "Price cannot be empty")
+    @PositiveOrZero(message = "Price cannot be negative")
     private double price;
 
-
+    @NotNull(message = "Number of available hardware cannot be empty")
+    @PositiveOrZero(message = "Number of available hardware cannot be negative")
     private Integer numberAvailable;
 
-
+    @NotEmpty(message = "Hardware type cannot be empty")
     private String type;
 
     public String getName(){
