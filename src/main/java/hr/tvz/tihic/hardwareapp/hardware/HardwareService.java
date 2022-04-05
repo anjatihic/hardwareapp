@@ -7,5 +7,7 @@ import java.util.Optional;
 public interface HardwareService {
     List<HardwareDTO> findAll();
     HardwareDTO findByCode(String code);
-    Optional<HardwareDTO> save(HardwareCommand hardwareCommand);
+    Optional<HardwareDTO> post(HardwareCommand hardwareCommand);
+    void delete(String code);
+    Optional<HardwareDTO> update(String code, HardwareCommand hardwareCommand);
 }

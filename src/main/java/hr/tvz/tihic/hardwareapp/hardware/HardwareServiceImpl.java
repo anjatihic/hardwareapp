@@ -25,20 +25,32 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     @Override
-    public Optional<HardwareDTO> save(final HardwareCommand hardwareCommand){
-        return(hardwareRepository.save(mapCommandToHardware(hardwareCommand)).map(this::mapHardwareToDTO));
+    public Optional<HardwareDTO> post(final HardwareCommand hardwareCommand){
+        return hardwareRepository.post(commandToHardware(hardwareCommand)).map(this::mapHardwareToDTO);
+    }
+
+    @Override
+    public Optional<HardwareDTO> update(String code, HardwareCommand hardwareCommand){
+        return hardwareRepository.update(code, commandToHardware(hardwareCommand)).map(this::mapHardwareToDTO);
+    }
+
+    @Override
+    public void delete(String code){
+        hardwareRepository.delete(code);
+    }
+
+    private Hardware commandToHardware(HardwareCommand hardwareCommand){
+        return new Hardware(hardwareCommand.getName(),
+                hardwareCommand.getCode(),
+                hardwareCommand.getPrice(),
+                hardwareCommand.getNumberAvailable(),
+                Hardware.Type.valueOf(hardwareCommand.getType().toUpperCase()));
     }
 
     private HardwareDTO mapHardwareToDTO(final Hardware hardware){
         return new HardwareDTO(hardware.getName(), hardware.getPrice());
     }
 
-    private Hardware mapCommandToHardware(final HardwareCommand hardwareCommand){
-        return new Hardware(hardwareCommand.getName(),
-                            hardwareCommand.getCode(),
-                            hardwareCommand.getPrice(),
-                            hardwareCommand.getNumberAvailable(),
-                            Hardware.Type.valueOf(hardwareCommand.getType().toUpperCase()));
-    }
+
 
 }

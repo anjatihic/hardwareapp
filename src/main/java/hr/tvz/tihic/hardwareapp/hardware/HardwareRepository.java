@@ -7,5 +7,7 @@ import java.util.Optional;
 public interface HardwareRepository {
     List<Hardware> findAll();
     Optional<Hardware> findByCode(String code);
-    Optional<Hardware> save(Hardware hardware);
+    Optional<Hardware> post(Hardware hardware);
+    void delete(String code);
+    Optional<Hardware> update (String code, Hardware hardware);
 }

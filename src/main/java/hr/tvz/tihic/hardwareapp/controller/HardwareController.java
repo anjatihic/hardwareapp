@@ -1,5 +1,6 @@
 package hr.tvz.tihic.hardwareapp.controller;
 
+import hr.tvz.tihic.hardwareapp.hardware.Hardware;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareCommand;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareDTO;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("hardware")
@@ -24,24 +26,40 @@ public class HardwareController {
         return hardwareService.findAll();
     }
 
-    @GetMapping(params = "code")
-    public HardwareDTO getHardwareByCode(@RequestParam final String code){
+    @GetMapping("/{code}")
+    public HardwareDTO getHardwareByCode(@PathVariable final String code){
         return hardwareService.findByCode(code);
     }
 
     @PostMapping
-    public ResponseEntity<HardwareDTO> save(@Valid @RequestBody final HardwareCommand command){
-        return hardwareService.save(command)
+    public ResponseEntity<HardwareDTO> post(@Valid @RequestBody HardwareCommand command){
+        return hardwareService.post(command)
                 .map(
-                        hardwareDTO -> ResponseEntity
-                                .status(HttpStatus.CREATED)
-                                .body(hardwareDTO)
+                    hardwareDTO -> ResponseEntity.status(HttpStatus.CREATED).body(hardwareDTO)
                 )
                 .orElseGet(
-                        () -> ResponseEntity
-                                .status(HttpStatus.CONFLICT)
-                                .build()
+                        () -> ResponseEntity.status(HttpStatus.CONFLICT).build()
+                );
+
+    }
+
+    @PutMapping("/{code}")
+    public ResponseEntity<HardwareDTO> update(@PathVariable String code, @Valid @RequestBody HardwareCommand hardwareCommand){
+        return hardwareService.update(code, hardwareCommand)
+                .map(
+                        hardwareDTO -> ResponseEntity.status(HttpStatus.OK).body(hardwareDTO)
+                )
+                .orElseGet(
+                        () -> ResponseEntity.notFound().build()
                 );
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{code}")
+    public void delete(@PathVariable String code){
+        System.out.println(code);
+        hardwareService.delete(code);
+    }
+
 
 }
