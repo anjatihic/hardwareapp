@@ -1,9 +1,6 @@
 package hr.tvz.tihic.hardwareapp.hardware;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 
 public class HardwareCommand {
 
@@ -22,6 +19,7 @@ public class HardwareCommand {
     private Integer numberAvailable;
 
     @NotEmpty(message = "Hardware type cannot be empty")
+    @Pattern(message = "Hardware type must be one of these: cpu, gpu, mbo, ram, storage or other", regexp = "^(cpu|gpu|mbo|ram|storage|other)$")
     private String type;
 
     public String getName(){
