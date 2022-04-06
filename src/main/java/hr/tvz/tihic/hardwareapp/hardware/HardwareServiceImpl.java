@@ -20,8 +20,8 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     @Override
-    public HardwareDTO findByCode(String code){
-        return hardwareRepository.findByCode(code).map(this::mapHardwareToDTO).orElse(null);
+    public Optional<HardwareDTO> findByCode(String code){
+        return hardwareRepository.findByCode(code).map(this::mapHardwareToDTO);
     }
 
     @Override

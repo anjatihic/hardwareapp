@@ -6,7 +6,7 @@ import java.util.Optional;
 //communication with business logic
 public interface HardwareService {
     List<HardwareDTO> findAll();
-    HardwareDTO findByCode(String code);
+    Optional<HardwareDTO> findByCode(String code);
     Optional<HardwareDTO> post(HardwareCommand hardwareCommand);
     void delete(String code);
     Optional<HardwareDTO> update(String code, HardwareCommand hardwareCommand);
