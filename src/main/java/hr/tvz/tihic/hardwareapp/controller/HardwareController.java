@@ -1,6 +1,5 @@
 package hr.tvz.tihic.hardwareapp.controller;
 
-import hr.tvz.tihic.hardwareapp.hardware.Hardware;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareCommand;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareDTO;
 import hr.tvz.tihic.hardwareapp.hardware.HardwareService;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("hardware")
