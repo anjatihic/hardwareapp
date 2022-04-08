@@ -9,5 +9,5 @@ public interface HardwareRepository {
     Optional<Hardware> findByCode(String code);
     Optional<Hardware> post(Hardware hardware);
     void delete(String code);
-    Optional<Hardware> update (String code, Hardware hardware);
+    Optional<Hardware> updatePrice (String code, PriceUpdateCommand hardware);
 }

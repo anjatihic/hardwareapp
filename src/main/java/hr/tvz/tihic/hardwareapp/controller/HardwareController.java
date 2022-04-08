@@ -1,8 +1,6 @@
 package hr.tvz.tihic.hardwareapp.controller;
 
-import hr.tvz.tihic.hardwareapp.hardware.HardwareCommand;
-import hr.tvz.tihic.hardwareapp.hardware.HardwareDTO;
-import hr.tvz.tihic.hardwareapp.hardware.HardwareService;
+import hr.tvz.tihic.hardwareapp.hardware.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,9 +46,10 @@ public class HardwareController {
 
     }
 
+
     @PutMapping("/{code}")
-    public ResponseEntity<HardwareDTO> update(@PathVariable String code, @Valid @RequestBody HardwareCommand hardwareCommand){
-        return hardwareService.update(code, hardwareCommand)
+    public ResponseEntity<HardwareDTO> updatePrice(@PathVariable String code, @Valid @RequestBody PriceUpdateCommand hardwareCommand){
+        return hardwareService.updatePrice(code, hardwareCommand)
                 .map(
                         hardwareDTO -> ResponseEntity.status(HttpStatus.OK).body(hardwareDTO)
                 )

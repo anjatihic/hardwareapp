@@ -30,14 +30,15 @@ public class HardwareServiceImpl implements HardwareService {
     }
 
     @Override
-    public Optional<HardwareDTO> update(String code, HardwareCommand hardwareCommand){
-        return hardwareRepository.update(code, commandToHardware(hardwareCommand)).map(this::mapHardwareToDTO);
+    public Optional<HardwareDTO> updatePrice(String code, PriceUpdateCommand hardwareCommand){
+        return hardwareRepository.updatePrice(code, hardwareCommand).map(this::mapHardwareToDTO);
     }
 
     @Override
     public void delete(String code){
         hardwareRepository.delete(code);
     }
+
 
     private Hardware commandToHardware(HardwareCommand hardwareCommand){
         return new Hardware(hardwareCommand.getName(),

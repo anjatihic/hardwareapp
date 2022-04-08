@@ -9,5 +9,6 @@ public interface HardwareService {
     Optional<HardwareDTO> findByCode(String code);
     Optional<HardwareDTO> post(HardwareCommand hardwareCommand);
     void delete(String code);
-    Optional<HardwareDTO> update(String code, HardwareCommand hardwareCommand);
+    Optional<HardwareDTO> updatePrice(String code, PriceUpdateCommand hardwareCommand);
 }
+
