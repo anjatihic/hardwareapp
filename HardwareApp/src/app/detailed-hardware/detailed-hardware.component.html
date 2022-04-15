@@ -1,0 +1,6 @@
+<div class="detailedHardware" *ngIf="hardware">
+  <h2>Details - {{hardware.name}}</h2>
+  <div>
+    Price: {{hardware.price | number: '1.2-2'}} €
+  </div>
+</div>

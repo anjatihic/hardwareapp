@@ -1,0 +1,13 @@
+<div class="listAllHardware">
+  	<h2>All Hardware</h2>
+    <ul class="allHardware">
+      <li *ngFor="let hardware of allHardware"
+          (click)="onSelect(hardware)"
+          [class.selected]="hardware === selectedHardware">
+          <img src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png"> 
+          <span>{{hardware.name}}</span>
+      </li>
+    </ul>
+</div>
+<app-detailed-hardware [hardware]="selectedHardware"></app-detailed-hardware>
+<app-info-message [hardware] = "selectedHardware"></app-info-message>

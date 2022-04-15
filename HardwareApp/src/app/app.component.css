@@ -1,0 +1,12 @@
+h1{
+  font-size: 3em;
+  color: #393a3a;
+  font-weight: normal;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+  padding: 70px 10vw;
+}
+
+.h1_title{
+  width: 100%;
+  background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+}
