@@ -40,7 +40,27 @@ li{
   border-radius: 80px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+
+#deleteButton{
+  margin-right: 30px;
+}
+
+#addHardwareButton {
+  background-color: rgba(122, 83, 121, 0.99);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addHardwareButton:hover {
+  background-color: rgba(87, 60, 86, 0.99);
+}
+
 
 li:hover{
   background-color: #e0d2e5;

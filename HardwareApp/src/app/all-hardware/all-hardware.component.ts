@@ -40,4 +40,8 @@ export class AllHardwareComponent implements OnInit {
       })
   }
 
+  delete(hardware: Hardware): void{
+    this.HardwareService.deleteHardware(hardware);
+  }
+
 }

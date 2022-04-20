@@ -2,11 +2,18 @@
     <ul class="allHardware">
       <li *ngFor="let hardware of allHardware"
           (click)="onSelect(hardware)"
-          [routerLink]="['/detail',hardware.code]"
           [class.selected]="hardware === selectedHardware">
+        <div>
           <img alt="monitor-icon" src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png">
-          <span>{{hardware.name}}</span>
+          <span [routerLink]="['/detail',hardware.code]">{{hardware.name}}</span>
+        </div>
+        <div>
+          <button id="deleteButton" (click)="delete(hardware)">
+            <img alt="delete-icon" src="https://icons-for-free.com/download-icon-cross+delete+icon-1320196393721642367_256.png">
+          </button>
+        </div>
       </li>
+
     </ul>
 </div>
 
@@ -42,12 +49,9 @@
         <input type="number" #hardwarePrice>
       </div>
 
-      <!--
-      <button (click)="add(hardwareName.value, hardwareCode.value, hardwareType.value, hardwareNumber.value, hardwarePrice.value);
-                        hardwareName.value=''; hardwareType.value=''; hardwarePrice.value=''; hardwareNumber=''; hardwareCode.value='';">
+      <button id="addHardwareButton">
         Add hardware
       </button>
-      -->
     </div>
   </form>
 </div>

@@ -17,6 +17,12 @@ export class HardwareServiceService {
 
   constructor(private http: HttpClient) { }
 
+  getHardwareByCode(code: string): Observable<Hardware>{
+    return this.http.get<Hardware>(this.allHardwareUrl + "/" + code).pipe(
+      tap(_ => console.log('fetched hardware with code = ' + code))
+    );
+  }
+
   getAllHardware(): Observable<Hardware[]> {
     return this.http.get<Hardware[]>(this.allHardwareUrl)
       .pipe(
@@ -34,10 +40,12 @@ export class HardwareServiceService {
 
   deleteHardware(hardware: Hardware | string): Observable<Hardware>{
     const code = typeof hardware === 'string' ? hardware : hardware.code;
-    const url = '${this.allHardwareUrl}/${code}';
+    const url = this.allHardwareUrl + "/" + code;
+
+    console.log(hardware);
 
     return this.http.delete<Hardware>(url, this.httpsOptions).pipe(
-      tap(_ => console.log('deleted hardware w/ code = ${code}')),
+      tap(_ => console.log('deleted hardware w/ code = ' + code)),
       catchError(this.handleError<Hardware>('deleteHardware'))
     )
   }
