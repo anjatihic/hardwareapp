@@ -4,7 +4,7 @@
       <li *ngFor="let hardware of allHardware"
           (click)="onSelect(hardware)"
           [class.selected]="hardware === selectedHardware">
-          <img src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png"> 
+          <img alt="monitor-icon" src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png">
           <span>{{hardware.name}}</span>
       </li>
     </ul>

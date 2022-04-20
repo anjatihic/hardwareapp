@@ -10,7 +10,8 @@ export class DetailedHardwareComponent implements OnInit {
 
   @Input() hardware!: Hardware;
 
-  constructor() { }
+  constructor() {}
+
 
   ngOnInit(): void {
   }
