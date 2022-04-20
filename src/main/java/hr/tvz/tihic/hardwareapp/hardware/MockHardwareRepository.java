@@ -7,9 +7,11 @@ import java.util.*;
 @Repository
 public class MockHardwareRepository implements HardwareRepository {
     private List<Hardware> MOCKED_HARDWARE = new ArrayList<>(Arrays.asList(
-            new Hardware("Intel Core i9-12900E", "1234", 494.00, 10, Hardware.Type.CPU),
-            new Hardware("Kingston FURY Beast DDR3 Memory 8GB", "1235", 90.98, 3, Hardware.Type.STORAGE),
-            new Hardware("NVIDIA GeForce GTX 1080", "1236", 599.99, 2, Hardware.Type.GPU))
+            new Hardware("Intel Core i7-12700K Desktop Processor 12", "001CPU", 374, 10, Hardware.Type.CPU),
+            new Hardware("Nvidia GeForce GTX 1080 8GB", "001GPU", 800, 4, Hardware.Type.GPU),
+            new Hardware("ASUS Prime Z590-A LGA 1200", "001MBO", 249.99, 23, Hardware.Type.MBO),
+            new Hardware("Corsair Vengeance LPX 16GB", "001RAM", 77.99, 16, Hardware.Type.RAM),
+            new Hardware("Seagate 16TB HDD", "001STO", 539, 3, Hardware.Type.STORAGE))
     );
 
     @Override

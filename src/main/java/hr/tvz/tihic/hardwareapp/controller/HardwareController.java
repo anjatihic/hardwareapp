@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("hardware")
-@CrossOrigin(origins = "http://localhost:4200")
 public class HardwareController {
     private final HardwareService hardwareService;
 
@@ -19,6 +18,7 @@ public class HardwareController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<HardwareDTO> getAllHardware(){
         return hardwareService.findAll();
     }
