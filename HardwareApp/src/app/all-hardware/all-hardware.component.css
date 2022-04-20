@@ -1,11 +1,27 @@
-h2{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: normal;
-  font-size: 2em;
+.listAllHardware, form{
+  margin: 70px 10vw;
 }
 
-.listAllHardware{
-  margin: 70px 10vw;
+form{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left: 2.5%;
+}
+
+h3{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 1.7em;
+  margin: 10px 10vw;
+}
+
+input, select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 ul{
@@ -24,6 +40,10 @@ li{
   border-radius: 80px;
   display: flex;
   align-items: center;
+}
+
+li:hover{
+  background-color: #e0d2e5;
 }
 
 li span{

@@ -1,13 +1,53 @@
 <div class="listAllHardware">
-  	<h2>All Hardware</h2>
     <ul class="allHardware">
       <li *ngFor="let hardware of allHardware"
           (click)="onSelect(hardware)"
+          [routerLink]="['/detail',hardware.code]"
           [class.selected]="hardware === selectedHardware">
           <img alt="monitor-icon" src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png">
           <span>{{hardware.name}}</span>
       </li>
     </ul>
 </div>
-<app-detailed-hardware [hardware]="selectedHardware"></app-detailed-hardware>
-<app-info-message [hardware] = "selectedHardware"></app-info-message>
+
+<div>
+  <h3>New Hardware</h3>
+  <form>
+    <div>
+      <div>
+        <label>Name:</label><br>
+        <input #hardwareName/>
+      </div>
+      <div>
+        <label>Code:</label><br>
+        <input #hardwareCode/>
+      </div>
+      <div>
+        <label>Type:</label><br>
+        <select #hardwareType>
+          <option value="CPU">CPU</option>
+          <option value="GPU">GPU</option>
+          <option value="MBO">MBO</option>
+          <option value="RAM">RAM</option>
+          <option value="Storage">Storage</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Number of available products:</label><br>
+        <input type="number" #hardwareNumber>
+      </div>
+      <div>
+        <label>Price:</label><br>
+        <input type="number" #hardwarePrice>
+      </div>
+
+      <!--
+      <button (click)="add(hardwareName.value, hardwareCode.value, hardwareType.value, hardwareNumber.value, hardwarePrice.value);
+                        hardwareName.value=''; hardwareType.value=''; hardwarePrice.value=''; hardwareNumber=''; hardwareCode.value='';">
+        Add hardware
+      </button>
+      -->
+    </div>
+  </form>
+</div>

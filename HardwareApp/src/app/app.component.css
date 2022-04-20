@@ -2,11 +2,25 @@ h1{
   font-size: 3em;
   color: #393a3a;
   font-weight: normal;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 70px 10vw;
 }
 
 .h1_title{
   width: 100%;
   background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+}
+
+nav a{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 2em;
+  margin: 70px 10vw;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover{
+  text-decoration: underline;
+  color: #456a6f;
 }

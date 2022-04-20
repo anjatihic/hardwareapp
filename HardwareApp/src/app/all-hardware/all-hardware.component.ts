@@ -27,4 +27,17 @@ export class AllHardwareComponent implements OnInit {
     this.selectedHardware = hardware;
   }
 
+  add(name: string, code: string, type: string, numberAvailable: number, price: number): void{
+    name = name.trim();
+    code = code.trim();
+    type = type.trim();
+
+    if(!name || !code || !type || !numberAvailable || !price){ return; }
+
+    this.HardwareService.addHardware({name, code, type, numberAvailable, price} as Hardware)
+      .subscribe(hardware => {
+        this.allHardware.push(hardware)
+      })
+  }
+
 }
