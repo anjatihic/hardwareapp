@@ -13,7 +13,9 @@ export class DetailedHardwareComponent implements OnInit {
   constructor() {}
 
 
+
   ngOnInit(): void {
+
   }
 
 }

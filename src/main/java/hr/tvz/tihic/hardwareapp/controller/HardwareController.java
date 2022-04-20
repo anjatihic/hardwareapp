@@ -24,6 +24,7 @@ public class HardwareController {
     }
 
     @GetMapping("/{code}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code){
 
         return hardwareService.findByCode(code)
@@ -36,6 +37,7 @@ public class HardwareController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<HardwareDTO> post(@Valid @RequestBody HardwareCommand command){
         return hardwareService.post(command)
                 .map(
@@ -49,6 +51,7 @@ public class HardwareController {
 
 
     @PutMapping("/{code}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<HardwareDTO> updatePrice(@PathVariable String code, @Valid @RequestBody PriceUpdateCommand hardwareCommand){
         return hardwareService.updatePrice(code, hardwareCommand)
                 .map(
@@ -61,6 +64,7 @@ public class HardwareController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{code}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void delete(@PathVariable String code){
         System.out.println(code);
         hardwareService.delete(code);
