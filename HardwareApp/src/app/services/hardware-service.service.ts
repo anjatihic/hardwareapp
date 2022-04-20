@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {catchError, Observable, of, tap} from 'rxjs';
 import { Hardware } from '../models/hardware';
-import { ALL_HARDWARE } from '../models/mock-hardware';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
@@ -33,19 +32,17 @@ export class HardwareServiceService {
 
   addHardware(hardware: Hardware): Observable<Hardware> {
     return this.http.post<Hardware>(this.allHardwareUrl, hardware, this.httpsOptions).pipe(
-      tap((newHardware: Hardware) => console.log('added hardware w/ code = ${newHardware.code}')),
+      tap((newHardware: Hardware) => console.log('added hardware w/ code = ' + newHardware.code)),
       catchError(this.handleError<Hardware>('addHardware'))
     );
   }
 
-  deleteHardware(hardware: Hardware | string): Observable<Hardware>{
+  deleteHardware(hardware: Hardware | string): Observable<Hardware> {
     const code = typeof hardware === 'string' ? hardware : hardware.code;
     const url = this.allHardwareUrl + "/" + code;
 
-    console.log(hardware);
-
     return this.http.delete<Hardware>(url, this.httpsOptions).pipe(
-      tap(_ => console.log('deleted hardware w/ code = ' + code)),
+      tap(_ => console.log('deleted hardware with code = ' + code)),
       catchError(this.handleError<Hardware>('deleteHardware'))
     )
   }

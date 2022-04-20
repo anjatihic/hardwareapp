@@ -41,7 +41,12 @@ export class AllHardwareComponent implements OnInit {
   }
 
   delete(hardware: Hardware): void{
-    this.HardwareService.deleteHardware(hardware);
+    const hardwareIndex = this.allHardware.indexOf(hardware);
+
+    this.HardwareService.deleteHardware(hardware)
+      .subscribe(hardware => {
+        this.allHardware.splice(hardwareIndex);
+      })
   }
 
 }
