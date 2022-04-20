@@ -51,7 +51,8 @@
         <input type="number" #hardwarePrice>
       </div>
 
-      <button id="addHardwareButton">
+      <button id="addHardwareButton"
+      (click)="add(hardwareName.value, hardwareCode.value, hardwareType.value, +hardwareNumber.value, +hardwarePrice.value)">
         Add hardware
       </button>
     </div>
