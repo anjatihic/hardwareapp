@@ -5,7 +5,9 @@
           [class.selected]="hardware === selectedHardware">
         <div>
           <img alt="monitor-icon" src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png">
-          <span [routerLink]="['/detail',hardware.code]">{{hardware.name}}</span>
+          <span [routerLink]="['/detail',hardware.code]">
+            {{hardware.name}}
+          </span>
         </div>
         <div>
           <button id="deleteButton" (click)="delete(hardware)">
