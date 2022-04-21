@@ -1,0 +1,15 @@
+.detailedReview{
+  margin: 40px 10vw;
+}
+
+h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.detailedReview div{
+  font-size: 1.4em;
+  line-height: 1.8em;
+}

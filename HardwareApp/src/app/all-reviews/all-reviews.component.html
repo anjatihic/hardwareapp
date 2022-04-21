@@ -1,0 +1,15 @@
+<div class="listAllReviews">
+  <ul class="allReviews">
+    <li *ngFor="let review of allReviews"
+        (click)="onSelect(review)"
+        [class.selected]="review === selectedReview">
+      <div>
+        <img alt="monitor-icon" src="https://winaero.com/blog/wp-content/uploads/2021/07/this-pc-computer-display-windows-11-icon.png">
+        <span [routerLink]="['/review',review.code]">
+            {{review.name}} ------ {{review.rating}} ★
+          </span>
+      </div>
+    </li>
+
+  </ul>
+</div>

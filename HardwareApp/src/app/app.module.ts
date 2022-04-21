@@ -7,13 +7,17 @@ import { DetailedHardwareComponent } from './detailed-hardware/detailed-hardware
 import { InfoMessageComponent } from './info-message/info-message.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AllReviewsComponent } from './all-reviews/all-reviews.component';
+import { DetailedReviewComponent } from './detailed-review/detailed-review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllHardwareComponent,
     DetailedHardwareComponent,
-    InfoMessageComponent
+    InfoMessageComponent,
+    AllReviewsComponent,
+    DetailedReviewComponent
   ],
   imports: [
     BrowserModule,
