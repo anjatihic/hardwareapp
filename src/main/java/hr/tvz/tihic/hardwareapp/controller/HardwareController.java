@@ -49,19 +49,6 @@ public class HardwareController {
 
     }
 
-
-    @PutMapping("/{code}")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<HardwareDTO> updatePrice(@PathVariable String code, @Valid @RequestBody PriceUpdateCommand hardwareCommand){
-        return hardwareService.updatePrice(code, hardwareCommand)
-                .map(
-                        hardwareDTO -> ResponseEntity.status(HttpStatus.OK).body(hardwareDTO)
-                )
-                .orElseGet(
-                        () -> ResponseEntity.notFound().build()
-                );
-    }
-
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{code}")
     @CrossOrigin(origins = "http://localhost:4200")

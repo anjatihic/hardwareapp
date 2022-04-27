@@ -35,23 +35,6 @@ public class MockHardwareRepository implements HardwareRepository {
     }
 
     @Override
-    public Optional<Hardware> updatePrice(String code, PriceUpdateCommand hardware){
-        Hardware foundHardware = MOCKED_HARDWARE.stream()
-                .filter(x -> code.equals(x.getCode()))
-                .findAny()
-                .orElse(null);
-
-        if(foundHardware != null){
-            foundHardware.setPrice(hardware.getPrice());
-
-            return Optional.of(foundHardware);
-        }else{
-            return Optional.empty();
-        }
-
-    }
-
-    @Override
     public void delete(String code){
         Hardware foundHardware = MOCKED_HARDWARE.stream()
                                     .filter(hardware -> code.equals(hardware.getCode()))
