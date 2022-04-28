@@ -9,5 +9,6 @@ public interface HardwareService {
     Optional<HardwareDTO> findByCode(String code);
     Optional<HardwareDTO> post(HardwareCommand hardwareCommand);
     void delete(String code);
+    List<HardwareDTO> getByFilter(GetFilterCommand filterCommand);
 }
 

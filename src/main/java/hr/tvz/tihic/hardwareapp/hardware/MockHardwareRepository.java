@@ -33,6 +33,10 @@ public class MockHardwareRepository implements HardwareRepository {
             return Optional.of(hardware);
         }
     }
+    @Override
+    public List<Hardware> getByFilter(GetFilterCommand filterCommand){
+        return null;
+    }
 
     @Override
     public void delete(String code){

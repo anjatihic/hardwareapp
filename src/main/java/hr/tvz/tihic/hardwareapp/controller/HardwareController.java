@@ -23,6 +23,11 @@ public class HardwareController {
         return hardwareService.findAll();
     }
 
+    @GetMapping("/filter")
+    public List<HardwareDTO> getHardwareByFilter(@Valid @RequestBody GetFilterCommand filterCommand) {
+        return hardwareService.getByFilter(filterCommand);
+    }
+
     @GetMapping("/{code}")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable final String code){

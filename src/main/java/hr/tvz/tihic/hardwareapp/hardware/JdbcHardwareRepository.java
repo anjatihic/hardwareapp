@@ -44,6 +44,11 @@ public class JdbcHardwareRepository implements HardwareRepository {
     }
 
     @Override
+    public List<Hardware> getByFilter(GetFilterCommand filterCommand){
+        return List.copyOf(jdbc.query("SELECT * FROM Hardware WHERE lower(name) LIKE '%rt%'", this::mapRowToHardware));
+    }
+
+    @Override
     public Optional<Hardware> post(Hardware hardware){
         try {
             saveHardwareDetails(hardware);

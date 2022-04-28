@@ -34,6 +34,11 @@ public class HardwareServiceImpl implements HardwareService {
         hardwareRepository.delete(code);
     }
 
+    @Override
+    public List<HardwareDTO> getByFilter(GetFilterCommand filterCommand){
+        return hardwareRepository.getByFilter(filterCommand).stream().map(this::mapHardwareToDTO).collect(Collectors.toList());
+    }
+
 
     private Hardware commandToHardware(HardwareCommand hardwareCommand){
         return new Hardware(hardwareCommand.getName(),

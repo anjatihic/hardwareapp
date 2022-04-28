@@ -9,4 +9,5 @@ public interface HardwareRepository {
     Optional<Hardware> findByCode(String code);
     Optional<Hardware> post(Hardware hardware);
     void delete(String code);
+    List<Hardware> getByFilter(GetFilterCommand filterCommand);
 }
