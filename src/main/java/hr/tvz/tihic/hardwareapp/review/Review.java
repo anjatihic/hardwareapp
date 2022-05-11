@@ -24,7 +24,6 @@ public class Review {
     private String hardwareCode;
     @ManyToOne
     @JoinColumn(name = "HARDWARE_COLUMN")
-    @Column(name = "hardware")
     private Hardware hardware;
 
     public enum Rating{
