@@ -1,8 +1,10 @@
 package hr.tvz.tihic.hardwareapp.review;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Review {
 
     private long id;
@@ -12,12 +14,5 @@ public class Review {
 
     public enum Rating{
         ONE, TWO, THREE, FOUR, FIVE
-    }
-
-    public Review(long id, String title, String reviewText, Rating rating) {
-        this.id = id;
-        this.title = title;
-        this.reviewText = reviewText;
-        this.rating = rating;
     }
 }
