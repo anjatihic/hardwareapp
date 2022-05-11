@@ -1,10 +1,23 @@
 package hr.tvz.tihic.hardwareapp.hardware;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "hardware")
 public class Hardware {
     private String name;
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "HARDWARE_CODE")
     private String code;
     private double price;
     private Integer numberAvailable;
@@ -12,13 +25,5 @@ public class Hardware {
 
     public enum Type {
         CPU, GPU, MBO, RAM, STORAGE, OTHER
-    }
-
-    public Hardware(String name, String code, double price, Integer numberAvailable, Type type) {
-        this.name = name;
-        this.code = code;
-        this.price = price;
-        this.numberAvailable = numberAvailable;
-        this.type = type;
     }
 }
