@@ -8,9 +8,5 @@ import lombok.Data;
 public class ReviewDTO {
     private String title;
     private String reviewText;
-    private Rating rating;
-
-    public enum Rating{
-        ONE, TWO, THREE, FOUR, FIVE
-    }
+    private Review.Rating rating;
 }
