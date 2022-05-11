@@ -11,7 +11,7 @@ insert into hardware (code, name, price, numberAvailable, type)
            ('001STO', 'Seagate 16TB HDD', 539, 3, 'Storage'),
            ('001OTH', 'Noctua High Performance Cooling Fan', 14.21, 20, 'Other');
 
-insert into review(id, title, reviewText, rating, hardwareCode)
+insert into review(id, title, reviewText, rating, hCode)
     values (1, 'Just what I needed', 'I needed a good processor to handle my amazing gaming abilities, and this one is perfect', 'FIVE', '001CPU'),
            (2, 'I have no words', 'They are just sooo loud and obnoxious', 'ONE', '001OTH'),
            (3, 'Its OK', 'I think it works fine', 'THREE', '001MBO'),

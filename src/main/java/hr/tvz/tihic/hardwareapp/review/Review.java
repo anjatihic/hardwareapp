@@ -4,7 +4,6 @@ import hr.tvz.tihic.hardwareapp.hardware.Hardware;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 
@@ -21,9 +20,9 @@ public class Review {
     private String title;
     private String reviewText;
     private Rating rating;
-    private String hardwareCode;
+    private String hCode;
     @ManyToOne
-    @JoinColumn(name = "HARDWARE_COLUMN")
+    @JoinColumn(name = "HARDWARE_CODE")
     private Hardware hardware;
 
     public enum Rating{

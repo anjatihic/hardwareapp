@@ -1,0 +1,11 @@
+<div class="listAllHardwareReviews">
+  <ul class="allReviews">
+    <li *ngFor="let review of reviewsByCode">
+      {{review.title}}-> {{review.rating}} - {{review.reviewText}}
+    </li>
+  </ul>
+
+  <div *ngIf="reviewsByCode.length === 0">
+    <p>This product currently doesn't have any reviews.</p>
+  </div>
+</div>

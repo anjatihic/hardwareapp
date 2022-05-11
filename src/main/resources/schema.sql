@@ -13,6 +13,6 @@ create table if not exists review(
     title varchar (200),
     reviewText varchar (1000),
     rating varchar (10),
-    hardwareCode varchar (20),
-    constraint fk_hardware foreign key (hardwareCode) references hardware(code)
+    hCode varchar (20),
+    constraint fk_hardware foreign key (hCode) references hardware(code)
 )
