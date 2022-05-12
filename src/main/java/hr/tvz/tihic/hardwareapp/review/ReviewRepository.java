@@ -8,4 +8,5 @@ public interface ReviewRepository extends JpaRepository<Review, Long>{
     List<Review> findAll();
 
     List<Review> findAllByHardware_Code(String code);
+    List<Review> findAllByReviewTextContainingIgnoreCase(String filter);
 }

@@ -28,4 +28,10 @@ public class ReviewController {
     public List<ReviewDTO> getByHardwareCode(@PathVariable String code){
         return reviewService.findByHardwareCode(code);
     }
+
+    @GetMapping(params = "filter")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<ReviewDTO> getReviewsByFilter(@RequestParam String filter){
+        return reviewService.findByTextFilter(filter);
+    }
 }

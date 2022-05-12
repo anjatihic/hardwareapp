@@ -8,6 +8,8 @@ import { InfoMessageComponent } from './info-message/info-message.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { FindReviewComponent } from './find-review/find-review.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,9 +17,11 @@ import { ReviewsComponent } from './reviews/reviews.component';
     AllHardwareComponent,
     DetailedHardwareComponent,
     InfoMessageComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    FindReviewComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

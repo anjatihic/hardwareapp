@@ -65,7 +65,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
                 resultSet.getString("name"),
                 resultSet.getString("code"),
                 resultSet.getDouble("price"),
-                resultSet.getInt("numberAvailable"),
+                resultSet.getInt("number_available"),
                 Hardware.Type.valueOf(resultSet.getString("type").toUpperCase()),
                 resultSet.getLong("id")
         );
@@ -77,7 +77,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
         values.put("code", hardware.getCode());
         values.put("name", hardware.getName());
         values.put("price", hardware.getPrice());
-        values.put("numberAvailable", hardware.getNumberAvailable());
+        values.put("number_available", hardware.getNumberAvailable());
         values.put("type", hardware.getType());
 
         return inserter.executeAndReturnKey(values).longValue();

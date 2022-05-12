@@ -6,4 +6,6 @@ public interface ReviewService {
     List<ReviewDTO> findAll();
 
     List<ReviewDTO> findByHardwareCode(String code);
+
+    List<ReviewDTO> findByTextFilter(String filter);
 }

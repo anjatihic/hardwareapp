@@ -21,6 +21,7 @@ public class Hardware {
 
     private double price;
     private Integer numberAvailable;
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     @OneToMany(mappedBy = "hardware", targetEntity = Review.class, fetch = FetchType.EAGER)

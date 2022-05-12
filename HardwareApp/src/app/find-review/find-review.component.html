@@ -1,0 +1,20 @@
+<form>
+  <label>Enter your filter:</label>
+  <input #reviewFilter>
+
+  <button id="addHardwareButton"
+          (click)="findAllByFilter(reviewFilter.value)">
+    Add hardware
+  </button>
+</form>
+
+<div *ngIf="searchedReviews">
+  <ul>
+    <li *ngFor="let review of searchedReviews">
+      {{review.title}} -> {{review.rating}} - {{review.reviewText}}
+    </li>
+  </ul>
+</div>
+<div *ngIf="!searchedReviews">
+  Nothing found, try typing something else
+</div>
