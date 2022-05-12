@@ -25,7 +25,8 @@ public class JdbcHardwareRepository implements HardwareRepository {
     public JdbcHardwareRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
         this.inserter = new SimpleJdbcInsert(jdbc)
-                .withTableName("Hardware");
+                .withTableName("Hardware")
+                .usingGeneratedKeyColumns("id");
     }
     @Override
     public List<Hardware> findAll(){
@@ -46,7 +47,7 @@ public class JdbcHardwareRepository implements HardwareRepository {
     @Override
     public Optional<Hardware> post(Hardware hardware){
         try {
-            saveHardwareDetails(hardware);
+            hardware.setId(saveHardwareDetails(hardware));
             return Optional.of(hardware);
         }catch (DuplicateKeyException e){
             return Optional.empty();
@@ -65,11 +66,12 @@ public class JdbcHardwareRepository implements HardwareRepository {
                 resultSet.getString("code"),
                 resultSet.getDouble("price"),
                 resultSet.getInt("numberAvailable"),
-                Hardware.Type.valueOf(resultSet.getString("type").toUpperCase())
+                Hardware.Type.valueOf(resultSet.getString("type").toUpperCase()),
+                resultSet.getLong("id")
         );
     }
 
-    private void saveHardwareDetails(Hardware hardware){
+    private long saveHardwareDetails(Hardware hardware){
         Map<String, Object> values = new HashMap<>();
 
         values.put("code", hardware.getCode());
@@ -78,6 +80,6 @@ public class JdbcHardwareRepository implements HardwareRepository {
         values.put("numberAvailable", hardware.getNumberAvailable());
         values.put("type", hardware.getType());
 
-        inserter.execute(values);
+        return inserter.executeAndReturnKey(values).longValue();
     }
 }

@@ -1,6 +1,7 @@
 package hr.tvz.tihic.hardwareapp.review;
 
 import hr.tvz.tihic.hardwareapp.controller.ReviewController;
+import hr.tvz.tihic.hardwareapp.hardware.HardwareRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDTO> findAllByHardwareCode(String code){
+    public List<ReviewDTO> findByHardwareCode(String code){
         return reviewRepository.findAllByHardware_Code(code).stream().map(this::mapReviewToDTO).collect(Collectors.toList());
     }
 

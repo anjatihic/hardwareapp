@@ -12,20 +12,24 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
+@AllArgsConstructor
 @Table(name = "hardware")
 public class Hardware {
     private String name;
 
-    @Id
-    @Column(name = "HARDWARE_CODE")
     private String code;
 
     private double price;
     private Integer numberAvailable;
     private Type type;
 
-    @OneToMany(mappedBy = "hardware")
+    @OneToMany(mappedBy = "hardware", targetEntity = Review.class, fetch = FetchType.EAGER)
     private List<Review> reviews;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
 
     public enum Type {
         CPU, GPU, MBO, RAM, STORAGE, OTHER
@@ -37,5 +41,14 @@ public class Hardware {
         this.price = price;
         this.numberAvailable = numberAvailable;
         this.type = type;
+    }
+
+    public Hardware(String name, String code, double price, Integer numberAvailable, Type type, long id) {
+        this.name = name;
+        this.code = code;
+        this.price = price;
+        this.numberAvailable = numberAvailable;
+        this.type = type;
+        this.id = id;
     }
 }
