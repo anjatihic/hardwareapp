@@ -17,6 +17,7 @@ public class Review  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private String title;
     private String reviewText;
