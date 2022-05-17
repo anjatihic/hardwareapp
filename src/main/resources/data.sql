@@ -2,6 +2,9 @@
 
 delete from hardware;
 delete from review;
+delete from authority;
+delete from user_info;
+delete from user_authority;
 
 insert into hardware (code, name, price, number_available, type, id)
     values ('001CPU', 'Intel Core i7-12700K Desktop Processor 12', 374, 10, 'CPU', 1),
@@ -18,3 +21,16 @@ insert into review(id, title, review_text, rating, hardware_id)
            (4, 'So much storage!', 'Finally I dont have to worry about storage space', 'FIVE', 5),
            (5, 'Finally its here', 'Im satisfied but I was waiting for this product for forever', 'TWO', 2),
            (6, 'Works ok', 'I like it', 'FOUR', 4);
+
+
+insert into authority(id, authority_name)
+    values (1, 'ROLE_ADMIN'),
+           (2, 'ROLE_USER');
+
+insert into user_info(id, username, password)
+    values (1, 'user', '$2a$12$h0HcS2QDb/7zPASbLa2GoOTSRP6CWK0oX7pCK.dPjkM6L5N4pNovi'), --password = user
+           (2, 'admin', '$2a$12$INo0nbj40sQrTB7b28KJput/bNltGmFyCfRsUhvy73qcXo5/XdsTG'); ---password = admin
+
+insert into user_authority(user_id, authority_id)
+    values (1, 2),
+           (2, 1);
