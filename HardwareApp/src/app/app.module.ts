@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FindReviewComponent } from './find-review/find-review.component';
 import {FormsModule} from "@angular/forms";
+import { ForbiddenPageComponent } from './forbidden-page/forbidden-page.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {FormsModule} from "@angular/forms";
     DetailedHardwareComponent,
     InfoMessageComponent,
     ReviewsComponent,
-    FindReviewComponent
+    FindReviewComponent,
+    ForbiddenPageComponent,
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,

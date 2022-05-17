@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class ReviewDTO {
     private String title;
-    private String reviewText;
+    private String text;
     private Review.Rating rating;
 }

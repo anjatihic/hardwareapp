@@ -4,6 +4,9 @@ import hr.tvz.tihic.hardwareapp.security.command.LoginCommand;
 import hr.tvz.tihic.hardwareapp.security.domain.User;
 import hr.tvz.tihic.hardwareapp.security.dto.LoginDTO;
 import hr.tvz.tihic.hardwareapp.security.repository.UserRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -33,6 +36,11 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 
     private boolean isMatchingPassword(String rawPassword, String encryptedPassword){
         //TODO - implementirati provjeru odgovara li lozinka, koju je unio korisnik, enkriptiranoj lozinki u bazi
-        throw new UnsupportedOperationException();
+        return passwordEncoder().matches(rawPassword, encryptedPassword);
+        // throw new UnsupportedOperationException();
+    }
+    @Bean
+    private PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }

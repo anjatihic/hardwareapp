@@ -16,7 +16,7 @@ public class HardwareCommand {
 
     @NotNull(message = "Number of available hardware cannot be empty")
     @PositiveOrZero(message = "Number of available hardware cannot be negative")
-    private Integer numberAvailable;
+    private Integer stock;
 
     @NotEmpty(message = "Hardware type cannot be empty")
     @Pattern(message = "Hardware type must be one of these: cpu, gpu, mbo, ram, storage or other", regexp = "(?i)^(cpu|gpu|mbo|ram|storage|other)$")
@@ -46,12 +46,12 @@ public class HardwareCommand {
         this.price = price;
     }
 
-    public Integer getNumberAvailable() {
-        return numberAvailable;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setNumberAvailable(Integer numberAvailable) {
-        this.numberAvailable = numberAvailable;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public String getType() {
