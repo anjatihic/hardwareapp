@@ -10,7 +10,6 @@ import {AuthenticationService} from "../security/authentication.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   authenticating = false;
   login = new Login('', '');
   authenticationError = false;
@@ -18,11 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     if(this.authenticationService.isUserAuthenticated()){
-      this.router.navigate(['/home']).then();
+      this.router.navigate(['']).then();
     }
   }
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       {
         next: (loginResponse: Jwt) => {
           this.authenticationService.saveJwtToLocalStorage(loginResponse.jwt);
-          this.router.navigate(['/home']).then();
+          this.router.navigate(['']).then();
         },
         error: () => {
           this.authenticationError = true;
@@ -43,4 +43,5 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+
 }

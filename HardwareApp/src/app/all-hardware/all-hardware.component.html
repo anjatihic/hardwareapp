@@ -9,7 +9,7 @@
             {{hardware.name}}
           </span>
         </div>
-        <div>
+        <div *ngIf="isUserAdmin">
           <button id="deleteButton"
           (click)="delete(hardware)">
             <img alt="delete-icon" src="https://icons-for-free.com/download-icon-cross+delete+icon-1320196393721642367_256.png">
@@ -20,7 +20,7 @@
     </ul>
 </div>
 
-<div>
+<div *ngIf="isUserAdmin">
   <h3>New Hardware</h3>
   <form>
     <div>

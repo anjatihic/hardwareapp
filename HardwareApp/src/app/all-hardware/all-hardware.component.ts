@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hardware } from '../models/hardware';
 import { HardwareServiceService } from '../services/hardware-service.service';
+import {AuthenticationService} from "../security/authentication.service";
 
 @Component({
   selector: 'app-all-hardware',
@@ -11,8 +12,14 @@ export class AllHardwareComponent implements OnInit {
 
   allHardware!: Hardware[];
   selectedHardware!: Hardware;
+  isUserAdmin: boolean;
 
-  constructor(private HardwareService: HardwareServiceService) { }
+  constructor(
+    private HardwareService: HardwareServiceService,
+    private authenticationService: AuthenticationService
+  ) {
+    this.isUserAdmin = this.authenticationService.isUserAdmin();
+  }
 
   ngOnInit(): void {
     this.getAllHardware();

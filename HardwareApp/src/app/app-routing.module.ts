@@ -4,23 +4,13 @@ import {AllHardwareComponent} from "./all-hardware/all-hardware.component";
 import {DetailedHardwareComponent} from "./detailed-hardware/detailed-hardware.component";
 import {LoginComponent} from "./login/login.component";
 import {LoggedInGuard} from "./security/logged-in.guard";
-import {AdminAuthorityGuard} from "./security/admin-authority.guard";
 import {ForbiddenPageComponent} from "./forbidden-page/forbidden-page.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
     path:'login',
     component: LoginComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
   },
   {
     path: 'hardware',
@@ -31,11 +21,6 @@ const routes: Routes = [
     path: 'detail/:code',
     component: DetailedHardwareComponent,
     canActivate: [LoggedInGuard]
-  },
-  {
-    path: 'new-hardware',
-    component: NewHardwareComponent,
-    canActivate: [AdminAuthorityGuard]
   },
   {
     path: 'forbidden',

@@ -15,26 +15,26 @@
           <div class="card-body">
             <form #authenticationForm="ngForm" class="form-signin" name="authenticationForm">
               <div class="text-center mb-4">
-                <h1 class="h3 mb-3 fw-normal">Prijava</h1>
+                <h1 class="h3 mb-3 fw-normal">Login</h1>
               </div>
               <div class="form-label-group mb-3">
-                <label>Korisničko ime</label>
+                <label>Username</label>
                 <input [(ngModel)]="login.username" [disabled]="authenticating"
                        autocomplete="username" class="form-control" name="username"
-                       placeholder="Unesite korisničko ime" required type="username">
+                       placeholder="Username" required type="username">
               </div>
               <div class="form-label-group">
-                <label>Lozinka</label>
+                <label>Password</label>
                 <input [(ngModel)]="login.password" [disabled]="authenticating"
                        autocomplete="current-password" class="form-control" name="password"
-                       placeholder="Unesite lozinku" required type="password">
+                       placeholder="Password" required type="password">
               </div>
               <button (click)="buttonLoginClick()" [disabled]="authenticating"
-                      class="btn btn-lg btn-primary btn-block mt-3" type="submit">Prijava <span
+                      class="btn btn-lg btn-primary btn-block mt-3" type="submit">Log In <span
                 class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
                 *ngIf="authenticating"></span>
               </button>
-              <div class="text-danger mt-2" *ngIf="authenticationError">Došlo je do pogreške prilikom prijave, provjerite uneseno korisničko ime i lozinku te pokušajte ponovno.</div>
+              <div class="text-danger mt-2" *ngIf="authenticationError">Something went wrong with login, try again.</div>
             </form>
           </div>
         </div>
@@ -42,4 +42,3 @@
     </div>
   </div>
 </div>
-
